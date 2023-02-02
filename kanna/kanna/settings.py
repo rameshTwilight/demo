@@ -26,7 +26,7 @@ SECRET_KEY = "django-insecure-7awq(qe$hr+juqt8l2j%p13h6alv^ijv#&pkw&w=h%m8r9_h-d
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -70,7 +70,12 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "kanna.wsgi.application"
+os.environ['DJANGO_SETTINGS_MODULE'] = 'mysite.settings'
 
+# then:
+
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
